@@ -1,0 +1,21 @@
+.cards-carousel{
+  &__swiper{
+    width: 435px;
+    height: 620px;
+    max-width: 100vw;
+    overflow: hidden;
+
+    @media(max-width: 768px){
+      width: 232.67px;
+      height: 331.27px;
+    }
+  }
+  &__swiper-slide{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    font-weight: bold;
+    color: #fff;
+  }
+}

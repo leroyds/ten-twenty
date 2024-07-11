@@ -1,0 +1,38 @@
+@import './global.scss';
+
+.section2{
+  width: 100vw;
+  overflow-x: hidden;
+  
+  &__top{
+    padding-top: 153px;
+    padding-bottom: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+
+    @media(max-width: 768px){
+      padding-top: 82px;
+      padding-bottom: 44px;
+    }
+
+
+    h3{
+      @media(max-width: 768px){
+        @include font(30px, 400, 40px);
+      }
+    }
+
+
+    p{
+      max-width: 748px;
+      text-align: center;
+
+      @media(max-width: 768px){
+        @include font(16px, 400, 18.77px);
+        max-width: 312px;
+      }
+    }
+  }
+}

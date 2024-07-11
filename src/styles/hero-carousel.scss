@@ -1,0 +1,78 @@
+
+.hero-slider{
+  *{
+    color: #F9F4EE;
+  }
+  
+  &__slide{
+    @media (max-width: 768px){
+      height: calc(100vh - 81px);
+    }
+    
+    &__text-box{
+      @media (max-width: 768px){
+        padding-left: 25px !important;
+        justify-content: start;
+        padding-top: 179px;
+      }
+      p{
+        line-height: 24px;
+        margin-bottom: 24px;
+        @media (max-width: 768px){
+          font-size: 14px;
+          line-height: 18.2px;
+          margin-bottom: 15px;
+        }
+      }
+      h4{
+        line-height: 64px;
+        max-width: 550px;
+        @media (max-width: 768px){
+          font-size: 46px;
+          line-height: 46px;
+          max-width: 341px;
+        }
+      }
+    }
+  }
+
+  &__next-btn{
+
+    &__container {
+      @media (max-width: 768px){
+        bottom: 64px;
+        left: 25px;
+      }
+    }
+
+    &__outline{
+      padding: 22px;
+      border: 1px solid #EEF4F9;
+      padding: 18px;
+
+      img{
+        width: 77.5px;
+        height: 77.5px;
+      }
+    }
+
+    &__pagination{
+      margin-left: 33px;
+      padding-left: 34px;
+      @media (max-width: 768px){
+        margin-left: 41px;
+      }
+
+      p{
+        @media (max-width: 768px){
+          font-size: 14px;
+          line-height: 15.4px;
+        }
+        &.slideNo{
+          position: absolute;
+          left: 0;
+        }
+      }
+    }
+  }
+}

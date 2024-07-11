@@ -1,0 +1,9 @@
+@mixin font($font-size, $font-weight, $line-height){
+  font-size: $font-size;
+  font-weight: $font-weight;
+  line-height: $line-height;
+}
+
+.translate-half{
+  transform: translate(-50%, -50%);
+}

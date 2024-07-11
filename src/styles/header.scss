@@ -1,0 +1,38 @@
+@import '../styles/global.scss';
+
+.header{
+  @media (max-width: 768px) {
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 100% !important;
+    flex-direction: row-reverse !important;
+    min-height: 81px;
+    padding: 0 24px 0 27.6px;
+  }
+  button{
+    border: 1px solid #000000;
+    // padding: 0 12px 0 16px;
+    display: flex;
+    gap: 16px;
+    width: 148px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include font(16px, 400, 17.6px);
+  }
+
+  &__ham{
+    @media (max-width: 768px) {
+      display: flex;
+    }
+  }
+
+  &__items{
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
+}
