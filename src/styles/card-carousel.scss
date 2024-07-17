@@ -19,3 +19,45 @@
     color: #fff;
   }
 }
+
+.text-carousel-container{
+  height: 300px;
+  width: 100vw;
+}
+
+.text-carousel-items{
+  padding-top: 50px;
+  position: absolute;
+  inset: 0;
+
+  h1{
+    
+    transition-delay: 0.6s;
+    &.active{
+      transition-delay: 1.6s;
+    }
+  }
+
+  h3{
+    transition-delay: 0.3s;
+    &.active{
+      transition-delay: 1.9s;
+    }
+  }
+  
+
+  *{
+    transform: translateY(20px);
+    transition: transform 1s, opacity 1s;
+    opacity: 0;
+    transition-delay: 0ms;
+
+    &.active{
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    &.previously-active{
+    }
+  }
+}

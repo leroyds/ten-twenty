@@ -12,15 +12,18 @@ import { EffectCards } from 'swiper/modules';
 import { cardsCarouselData } from './data';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
+import TextCarousel from './textCarousel';
 
 const CardsCarousel = () => {
   const [activeSlide, setActiveSlide] = useState(0)
+  const [previouseSlideActive, setPreviouseSlideActive] = useState(0);
   useEffect(()=> {
     console.log(activeSlide, 'activeSlide')
   }, [activeSlide])
 
-  const handleChange = (swiper) => {
-    setActiveSlide(swiper.activeIndex);
+  const handleChange = (...args) => {
+    console.log(args, 'args')
+    // setActiveSlide(swiper.activeIndex);
   }
 
   return (
@@ -48,13 +51,33 @@ const CardsCarousel = () => {
         // spaceBetween={2000}
       >
         {
-          cardsCarouselData.map(item => (
+          cardsCarouselData.map((item, index) => (
             <SwiperSlide className="cards-carousel__swiper-slide" key={item.id}>
-              <Image src={item.src} alt=''/>
+              {
+                (slide) => {
+                  console.log(slide)
+                  if(slide.isActive) {
+                    setActiveSlide((prevActive)=> {
+                      setPreviouseSlideActive(prevActive)
+                      return index
+                    })
+                  }
+                  return <Image src={item.src} alt=''/>
+                }
+              }
             </SwiperSlide>
           ))
         }
       </Swiper>
+      {/* <Swiper
+        loop={true}
+        centeredSlides={true}
+        onSlideChange={handleChange}
+        // spaceBetween={2000}
+      >
+
+      </Swiper> */}
+      <TextCarousel data={cardsCarouselData} activeSlide={activeSlide} previouseSlideActive={previouseSlideActive}/>
     </>
   );
 }
