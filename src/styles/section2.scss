@@ -12,6 +12,14 @@
     gap: 30px;
     align-items: center;
 
+
+    &.active{
+      h3, p{
+        opacity: 1;
+        transition: opacity 1.5s;
+      }
+    }
+
     @media(max-width: 768px){
       padding-top: 82px;
       padding-bottom: 44px;
@@ -19,6 +27,7 @@
 
 
     h3{
+      opacity: 0;
       @media(max-width: 768px){
         @include font(30px, 400, 40px);
       }
@@ -28,6 +37,7 @@
     p{
       max-width: 748px;
       text-align: center;
+      opacity: 0;
 
       @media(max-width: 768px){
         @include font(16px, 400, 18.77px);
