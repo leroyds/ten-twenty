@@ -7,17 +7,19 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import 'swiper/css/effect-fade';
-import { EffectFade } from 'swiper/modules';
+import { EffectFade, Autoplay } from 'swiper/modules';
 
 import { sliderData } from './data';
 import Image from 'next/image';
 import NextBtn from './NextBtn';
+import { useState } from 'react';
 
 
 
 const HeroCorousel = () => {
 
   const initialSlide=0;
+  const [activeSlideIndex, setActiveSlideIndex] = useState(initialSlide)
 
   return (
 
@@ -27,11 +29,24 @@ const HeroCorousel = () => {
       loop={true}
       className="hero-slider relative"
       initialSlide={initialSlide}
-      modules={[EffectFade]}
+      modules={[EffectFade, Autoplay]}
+      autoplay={{
+        delay: 2000
+      }}
+      speed={1000}
+      onSlideChange={(swiperCore) => {
+        const {
+          activeIndex,
+          snapIndex,
+          previousIndex,
+          realIndex,
+        } = swiperCore;
+        console.log({ activeIndex, snapIndex, previousIndex, realIndex });
+    }}
     >
       {/* slides */}
       {
-        sliderData.map(data => (
+        sliderData.map((data, index) => (
           <SwiperSlide key={data.id} className='hero-slider__slide relative h-screen w-screen'>
             <div className='bg-black z-10 opacity-20 absolute inset-0'></div>
             <Image className='h-screen object-cover' src={data.src} alt={data.title}/>
