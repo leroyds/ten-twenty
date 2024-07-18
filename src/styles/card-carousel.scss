@@ -1,3 +1,5 @@
+@import './global.scss';
+
 .cards-carousel{
   &__swiper{
     width: 435px;
@@ -31,15 +33,26 @@
   inset: 0;
 
   h1{
-    
+    @include font(26px, 400, 60px);
     transition-delay: 0.6s;
+
+    @media (max-width: 768px) {
+      @include font(24px, 500, 40px);
+    }
     &.active{
       transition-delay: 1.6s;
     }
   }
 
   h3{
+    color: #7A7777;
+    @include font(24px, 400, 28px);
     transition-delay: 0.3s;
+    margin-top: 20px;
+    @media (max-width: 768px) {
+      @include font(16px, 500, 22px);
+    }
+
     &.active{
       transition-delay: 1.9s;
     }
@@ -55,9 +68,6 @@
     &.active{
       transform: translateY(0);
       opacity: 1;
-    }
-
-    &.previously-active{
     }
   }
 }

@@ -2,7 +2,7 @@
 import '../../styles/dark.scss'
 import { useEffect, useRef, useState } from "react";
 
-const SquareBarProgress = ({barWidth=10, slideChangeHandler}) => {
+const SquareBarProgress = ({barWidth=10, slideChangeHandler, activeSlideIndex}) => {
   const [progress, setProgress] = useState(0)
   const intervalRef = useRef(null)
 
@@ -24,6 +24,10 @@ const SquareBarProgress = ({barWidth=10, slideChangeHandler}) => {
       slideChangeHandler();
     }
   }, [progress, slideChangeHandler])
+
+  useEffect(() => {
+    setProgress(0)
+  }, [activeSlideIndex])
 
   function getProgress(min, max){
     if(progress > min && progress <= max){

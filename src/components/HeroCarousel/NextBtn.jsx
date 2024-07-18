@@ -3,7 +3,7 @@ import { useCallback, useEffect, useState } from "react";
 import { useSwiper } from 'swiper/react';
 import SquareBarProgress from "../Dark/squareBarProgress";
 
-const NextBtn = ({data, initialSlide}) => {
+const NextBtn = ({data, initialSlide, activeSlideIndex}) => {
   const [btnImageIndex, setBtnImageIndex] = useState(initialSlide+1);
   const [activeSlideNo, setActiveSlideNo] = useState(initialSlide + 1);
 
@@ -28,7 +28,7 @@ const NextBtn = ({data, initialSlide}) => {
   
   return (
     <div className="hero-slider__next-btn__container absolute bottom-[90px] left-[135px] cursor-pointe z-30 flex items-center">
-      <SquareBarProgress slideChangeHandler={onClick}/>
+      <SquareBarProgress slideChangeHandler={onClick} activeSlideIndex={activeSlideIndex}/>
       <div className="hero-slider__next-btn__outline cursor-pointer">
         <div
           onClick={onClick}

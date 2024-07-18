@@ -13,6 +13,7 @@ import { sliderData } from './data';
 import Image from 'next/image';
 import NextBtn from './NextBtn';
 import { useState } from 'react';
+import HeroSlide from './HeroSlide';
 
 
 
@@ -44,18 +45,30 @@ const HeroCorousel = () => {
       {
         sliderData.map((data, index) => (
           <SwiperSlide key={data.id} className='hero-slider__slide relative h-screen w-screen'>
-            <div className='bg-black z-10 opacity-20 absolute inset-0'></div>
-            <Image className='h-screen object-cover' src={data.src} alt={data.title}/>
-            <div className='hero-slider__slide__text-box absolute z-20 inset-0 flex flex-col justify-center pl-135'>
-              <p className='text-base  text-white'>{data.subtitle}</p>
-              <h4 className='text-64px text-white'>{data.heading}</h4>
-            </div>
+            {
+        (swiper) => {
+          console.log(index, swiper, 'swiper')
+          if(swiper.isActive) {
+            
+            setActiveSlideIndex(index)
+          }
+          return (
+            <>
+              <div className='bg-black z-10 opacity-20 absolute inset-0'></div>
+              <Image className='h-screen object-cover' src={data.src} alt={data.title}/>
+              <div className='hero-slider__slide__text-box absolute z-20 inset-0 flex flex-col justify-center pl-135'>
+                <p className='text-base  text-white'>{data.subtitle}</p>
+                <h4 className='text-64px text-white'>{data.heading}</h4>
+              </div>
+            </>
+          )
+        }
+      }
           </SwiperSlide>
         ))
       }
-
       {/* next navigation button */}
-      <NextBtn data={sliderData} initialSlide={initialSlide}/>
+      <NextBtn data={sliderData} initialSlide={initialSlide} activeSlideIndex={activeSlideIndex}/>
     </Swiper>
   );
 }

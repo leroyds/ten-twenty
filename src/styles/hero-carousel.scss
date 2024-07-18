@@ -51,7 +51,10 @@
       width: 138px;
       height: 138px;
       position: absolute;
-
+      @media (max-width: 768px){
+        width: 115px;
+        height: 115px;
+      }
       img{
         @media (max-width: 768px){
           width: 77.5px;
