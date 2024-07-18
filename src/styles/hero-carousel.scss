@@ -47,12 +47,16 @@
 
     &__outline{
       padding: 22px;
-      border: 1px solid #EEF4F9;
       padding: 18px;
+      width: 138px;
+      height: 138px;
+      position: absolute;
 
       img{
-        width: 77.5px;
-        height: 77.5px;
+        @media (max-width: 768px){
+          width: 77.5px;
+          height: 77.5px;
+        }
       }
     }
 

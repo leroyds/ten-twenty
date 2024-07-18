@@ -30,10 +30,6 @@ const HeroCorousel = () => {
       className="hero-slider relative"
       initialSlide={initialSlide}
       modules={[EffectFade, Autoplay]}
-      autoplay={{
-        delay: 2000
-      }}
-      speed={1000}
       onSlideChange={(swiperCore) => {
         const {
           activeIndex,

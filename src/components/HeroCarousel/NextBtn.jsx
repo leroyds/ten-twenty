@@ -1,6 +1,7 @@
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useSwiper } from 'swiper/react';
+import SquareBarProgress from "../Dark/squareBarProgress";
 
 const NextBtn = ({data, initialSlide}) => {
   const [btnImageIndex, setBtnImageIndex] = useState(initialSlide+1);
@@ -14,11 +15,11 @@ const NextBtn = ({data, initialSlide}) => {
 
   const swiper = useSwiper();
 
-  const onClick = () => {
+  const onClick = useCallback(() => {
     setBtnImageIndex((prevBtnIndex) => prevBtnIndex === data.length - 1 ? 0 : prevBtnIndex + 1);
     setActiveSlideNo(activeSlideNo+1);
     swiper.slideNext();
-  }
+  }, [activeSlideNo, data, swiper])
 
   const displayTwoDigits = (num) => {
     if(num > 9) return num
@@ -27,6 +28,7 @@ const NextBtn = ({data, initialSlide}) => {
   
   return (
     <div className="hero-slider__next-btn__container absolute bottom-[90px] left-[135px] cursor-pointe z-30 flex items-center">
+      <SquareBarProgress slideChangeHandler={onClick}/>
       <div className="hero-slider__next-btn__outline cursor-pointer">
         <div
           onClick={onClick}
